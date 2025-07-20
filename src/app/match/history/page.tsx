@@ -1,4 +1,4 @@
-'use client';
+ 'use client';
 
 import { useEffect, useState } from 'react';
 
@@ -28,7 +28,7 @@ export default function MatchHistory() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/match/all');
+        const res = await fetch('https://rishta-app-backend.vercel.app/api/match/all');
         const data = await res.json();
 
         if (!res.ok) throw new Error(data.error || 'Failed to fetch match history');
@@ -82,7 +82,6 @@ export default function MatchHistory() {
             </table>
           </div>
 
-          {/* Pagination */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mt-6">
             <button
               disabled={currentPage === 1}
